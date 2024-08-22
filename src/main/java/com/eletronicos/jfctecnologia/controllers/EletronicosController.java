@@ -49,8 +49,6 @@ public class EletronicosController {
 	@Operation(summary = "Listar todos", description = "Metodo que lista todos os registros", tags = "Listar")
 	@GetMapping
 	public ResponseEntity<List<DadoListagemEletronicos>> listar() {
-		
-		
 
 		var lista = repository.findAllByAtivoTrue().stream().map(DadoListagemEletronicos::new).toList();
 

@@ -17,31 +17,28 @@ import com.eletronicos.jfctecnologia.usuarios.Usuario;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 
-
 @RestController
 @RequestMapping("/login")
 public class AutenticacaoController {
 
 	@Autowired
 	private AuthenticationManager manager;
-	
+
 	@Autowired
 	private TokenService tokenService;
-	
+
 	@Operation(summary = "Efetuar login", description = "Metodo que faz login e gera token", tags = "Login")
 	@PostMapping
-	public ResponseEntity<?> efetuarLogin (@RequestBody @Valid DadosAutenticacao dados){
-		
-		
+	public ResponseEntity<?> efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
+
 		var token = new UsernamePasswordAuthenticationToken(dados.login(), dados.senha());
-		
-		
-	    var autenticacao = manager.authenticate(token);
-	
+
+		var autenticacao = manager.authenticate(token);
+
 		var tokenJWT = tokenService.gerarToken((Usuario) autenticacao.getPrincipal());
-	    
+
 		return ResponseEntity.ok(new DadostokenJWT(tokenJWT));
-		
+
 	}
-	
+
 }

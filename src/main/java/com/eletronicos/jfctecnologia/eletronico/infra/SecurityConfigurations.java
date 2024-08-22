@@ -17,21 +17,21 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @Configuration
 @EnableWebSecurity
 public class SecurityConfigurations {
-	
+
 	@Autowired
 	private SecurityFilter securityFilter;
 
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-		 return http.csrf().disable()
-	                .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-	                .and().authorizeHttpRequests()
-	                .requestMatchers(HttpMethod.POST, "/login").permitAll()
-	                .requestMatchers(AUTH_WHITELIST).permitAll()
-	                .anyRequest().authenticated()
-	                .and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
-	                .build();
-    }
+		return http.csrf().disable()
+				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+				.and().authorizeHttpRequests()
+				.requestMatchers(HttpMethod.POST, "/login").permitAll()
+				.requestMatchers(AUTH_WHITELIST).permitAll()
+				.anyRequest().authenticated()
+				.and().addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
+				.build();
+	}
 
 	@Bean
 	public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
@@ -42,19 +42,18 @@ public class SecurityConfigurations {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
-	
-	
-	 private static final String[] AUTH_WHITELIST = {
-	           
-	            "/v2/api-docs",
-	            "/swagger-resources",
-	            "/swagger-resources/**",
-	            "/configuration/ui",
-	            "/configuration/security",
-	            "/swagger-ui.html",
-	            "/webjars/**",
-	            "/v3/api-docs/**",
-	            "/swagger-ui/**"
-	    };
-	
+
+	private static final String[] AUTH_WHITELIST = {
+
+			"/v2/api-docs",
+			"/swagger-resources",
+			"/swagger-resources/**",
+			"/configuration/ui",
+			"/configuration/security",
+			"/swagger-ui.html",
+			"/webjars/**",
+			"/v3/api-docs/**",
+			"/swagger-ui/**"
+	};
+
 }
