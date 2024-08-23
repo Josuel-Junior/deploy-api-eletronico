@@ -21,18 +21,15 @@ public class DadosCadastroUser {
     @NotBlank(message = "Password cannot be blank")
     private String senha;
 
-    // Construtor padrão
     public DadosCadastroUser() {
     }
 
-    // Construtor completo
     public DadosCadastroUser(Long id, String login, String senha) {
         this.id = id;
         this.login = login;
         this.senha = senha;
     }
 
-    // Getters e Setters
     public Long getId() {
         return id;
     }
