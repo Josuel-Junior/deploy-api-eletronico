@@ -1,5 +1,4 @@
-package com.eletronicos.jfctecnologia.usuarios;
-
+package com.eletronicos.jfctecnologia.autenticacaoUsuario;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -8,5 +7,4 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
 	UserDetails findByLogin(String login);
 
-	
 }

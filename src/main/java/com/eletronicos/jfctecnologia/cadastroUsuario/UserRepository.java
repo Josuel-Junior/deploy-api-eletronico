@@ -1,4 +1,4 @@
-package com.eletronicos.jfctecnologia.eletronico;
+package com.eletronicos.jfctecnologia.cadastroUsuario;
 
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;

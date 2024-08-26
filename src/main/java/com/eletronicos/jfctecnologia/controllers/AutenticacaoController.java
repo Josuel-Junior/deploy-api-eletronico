@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.eletronicos.jfctecnologia.eletronico.infra.TokenService;
+import com.eletronicos.jfctecnologia.autenticacaoUsuario.DadosAutenticacao;
+import com.eletronicos.jfctecnologia.autenticacaoUsuario.Usuario;
 import com.eletronicos.jfctecnologia.eletronico.infra.DadostokenJWT;
-import com.eletronicos.jfctecnologia.usuarios.DadosAutenticacao;
-import com.eletronicos.jfctecnologia.usuarios.Usuario;
 
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;

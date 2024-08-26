@@ -11,7 +11,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTCreationException;
 import com.auth0.jwt.exceptions.JWTVerificationException;
-import com.eletronicos.jfctecnologia.usuarios.Usuario;
+import com.eletronicos.jfctecnologia.autenticacaoUsuario.Usuario;
 
 @Service
 public class TokenService {

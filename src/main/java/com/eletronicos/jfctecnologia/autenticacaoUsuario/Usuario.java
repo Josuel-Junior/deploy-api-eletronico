@@ -1,4 +1,4 @@
-package com.eletronicos.jfctecnologia.usuarios;
+package com.eletronicos.jfctecnologia.autenticacaoUsuario;
 
 import java.util.Collection;
 import java.util.List;

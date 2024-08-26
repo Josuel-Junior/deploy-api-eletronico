@@ -1,4 +1,4 @@
-package com.eletronicos.jfctecnologia.usuarios;
+package com.eletronicos.jfctecnologia.autenticacaoUsuario;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -11,10 +11,10 @@ public class AuthenticationService implements UserDetailsService {
 
 	@Autowired
 	private UsuarioRepository repository;
-	
+
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		
+
 		return repository.findByLogin(username);
 	}
 

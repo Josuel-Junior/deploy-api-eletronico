@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.eletronicos.jfctecnologia.eletronico.DadosCadastroUser;
-import com.eletronicos.jfctecnologia.eletronico.UserService;
+import com.eletronicos.jfctecnologia.cadastroUsuario.DadosCadastroUser;
+import com.eletronicos.jfctecnologia.cadastroUsuario.UserService;
 
 import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.web.bind.annotation.RequestBody;

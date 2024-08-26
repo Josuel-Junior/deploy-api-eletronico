@@ -1,4 +1,7 @@
-package com.eletronicos.jfctecnologia.eletronico;
+package com.eletronicos.jfctecnologia.cadastroUsuario;
+
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,10 +12,12 @@ import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "Usuario")
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DadosCadastroUser {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @JsonProperty(access = JsonProperty.Access.READ_ONLY)
     private Long id;
 
     @NotBlank(message = "Login cannot be blank")
@@ -54,7 +59,6 @@ public class DadosCadastroUser {
         this.senha = senha;
     }
 
-    // Métodos toString, equals, e hashCode
     @Override
     public String toString() {
         return "DadosCadastroUser{" +
