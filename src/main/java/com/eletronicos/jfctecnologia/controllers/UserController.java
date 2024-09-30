@@ -26,7 +26,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    @Operation(summary = "Cadastrar usuário", tags = "User")
+    @Operation(tags = "Cadastrar usuário")
     public ResponseEntity<?> register(@RequestBody @Valid DadosCadastroUser dadosCadastroUser) {
         Boolean savedUser = userService.saveUser(dadosCadastroUser);
         if (savedUser) {
@@ -36,6 +36,7 @@ public class UserController {
         }
     }
 
+    @Operation(tags = "Deletar usuário")
     @DeleteMapping("delete/{id}")
     @Transactional
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {

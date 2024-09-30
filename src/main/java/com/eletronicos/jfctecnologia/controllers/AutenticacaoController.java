@@ -27,7 +27,7 @@ public class AutenticacaoController {
 	@Autowired
 	private TokenService tokenService;
 
-	@Operation(summary = "Efetuar login", description = "Metodo que faz login e gera token", tags = "Login")
+	@Operation(tags = "Efetuar login")
 	@PostMapping
 	public ResponseEntity<?> efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
 

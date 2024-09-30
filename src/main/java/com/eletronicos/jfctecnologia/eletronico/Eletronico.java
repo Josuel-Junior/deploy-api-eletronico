@@ -9,7 +9,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -32,36 +31,35 @@ public class Eletronico {
 		this.tipo = dados.tipo();
 		this.quantidade = dados.quantidade();
 		this.marca = dados.marca();
-	
+
 	}
 
-	@Id 
+	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	private String nome; 
-	
+	private String nome;
+
 	@Enumerated(EnumType.STRING)
 	private Tipo tipo;
 	private int quantidade;
-	
+
 	@Enumerated(EnumType.STRING)
 	private Marca marca;
-	
+
 	private Boolean ativo;
 
 	public void atualizarInformações(@Valid DadosAtualizarEletronico dados) {
-		
-		if(dados.nome() != null) {
+
+		if (dados.nome() != null) {
 			this.nome = dados.nome();
 		}
-		if(dados.tipo() != null) {
+		if (dados.tipo() != null) {
 			this.tipo = dados.tipo();
 		}
-		if(dados.marca() != null) {
+		if (dados.marca() != null) {
 			this.marca = dados.marca();
 		}
-		
-		
+
 	}
 
 	public void inativar() {
@@ -70,6 +68,6 @@ public class Eletronico {
 
 	public void reativar() {
 		this.ativo = true;
-		
+
 	}
 }

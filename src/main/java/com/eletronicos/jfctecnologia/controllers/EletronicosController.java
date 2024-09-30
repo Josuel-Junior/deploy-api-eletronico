@@ -31,7 +31,7 @@ public class EletronicosController {
 	@Autowired
 	private EletronicoRepository repository;
 
-	@Operation(summary = "Salvar", description = "Metodo que salvar um registro", tags = "Salvar")
+	@Operation(tags = "Salvar produto")
 	@PostMapping
 	@Transactional
 	public ResponseEntity<DadosDetalhamentoEletronicos> cadastrar(@RequestBody @Valid DadosCadastroEletronico dados,
@@ -46,6 +46,7 @@ public class EletronicosController {
 		return ResponseEntity.created(uri).body(new DadosDetalhamentoEletronicos(eletronico));
 	}
 
+	@Operation(tags = "Listar todos os produtos")
 	@GetMapping
 	public ResponseEntity<List<DadoListagemEletronicos>> listar() {
 
@@ -55,6 +56,7 @@ public class EletronicosController {
 
 	}
 
+	@Operation(tags = "Atualizar produto")
 	@PutMapping
 	@Transactional
 	public ResponseEntity<DadosDetalhamentoEletronicos> atualizar(@RequestBody @Valid DadosAtualizarEletronico dados) {
@@ -66,6 +68,7 @@ public class EletronicosController {
 
 	}
 
+	@Operation(tags = "Deletar produto")
 	@DeleteMapping("/{id}")
 	@Transactional
 	public ResponseEntity<Void> deletar(@PathVariable Long id) {
@@ -74,6 +77,7 @@ public class EletronicosController {
 		return ResponseEntity.noContent().build();
 	}
 
+	@Operation(tags = "Inativar produto")
 	@DeleteMapping("inativar/{id}")
 	@Transactional
 	public ResponseEntity<Void> inativar(@PathVariable Long id) {
@@ -84,6 +88,7 @@ public class EletronicosController {
 		return ResponseEntity.noContent().build();
 	}
 
+	@Operation(tags = "Buscar produto pelo ID")
 	@GetMapping("/{id}")
 	public ResponseEntity<DadosDetalhamentoEletronicos> detalhar(@PathVariable Long id) {
 
@@ -93,6 +98,7 @@ public class EletronicosController {
 
 	}
 
+	@Operation(tags = "Reativar produto pelo ID")
 	@PutMapping("reativar/{id}")
 	@Transactional
 	public ResponseEntity<Void> reativar(@PathVariable Long id) {
